@@ -1,3 +1,5 @@
+package ftp_server;
+
 import java.io.*; 
 import java.net.*;
 import java.util.*;
@@ -9,7 +11,7 @@ class ftp_server {
 		String fromClient;
 		String clientCommand;
 		byte[] data;
-		
+		Socket dataSocket;
 	
 		ServerSocket welcomeSocket = new ServerSocket(12000);
 		String frstln;
@@ -25,24 +27,25 @@ class ftp_server {
 			StringTokenizer tokens = new StringTokenizer(fromClient);
 		
 			frstln = tokens.nextToken();
-			port = Integer.parseInt(frstln);
+			int port = Integer.parseInt(frstln);
 			clientCommand = tokens.nextToken();
 			
 			if(clientCommand.equals("list:")){ 
-				Socket dataSocket = new Socket(connectionSocket.getInetAddress(), port);
+				dataSocket = new Socket(connectionSocket.getInetAddress(), port);
 				DataOutputStream  dataOutToClient = 
 				new DataOutputStream(dataSocket.getOutputStream());
 				// FIXME 
-			}
+			
 
-		dataSocket.close();
-		System.out.println("Data Socket closed");
-		}
-	
-		// fixme
-		 
-		if(clientCommand.equals("retr:")){
+			dataSocket.close();
+			System.out.println("Data Socket closed");
+			
+			}
 			// fixme
+			 
+			if(clientCommand.equals("retr:")){
+				// fixme
+			}
 		}
-	}
+    }
 }

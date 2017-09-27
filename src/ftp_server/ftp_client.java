@@ -1,3 +1,5 @@
+package ftp_server;
+
 import java.io.*; 
 import java.net.*;
 import java.util.*;
@@ -22,7 +24,7 @@ class ftp_client {
 		if(sentence.startsWith("connect")){
 			String serverName = tokens.nextToken(); // pass the connect command
 			serverName = tokens.nextToken();
-			port1 = Integer.parseInt(tokens.nextToken());
+			int port1 = Integer.parseInt(tokens.nextToken());
 			System.out.println("You are connected to " + serverName);
 			
 			Socket ControlSocket= new Socket(serverName, port1);
@@ -36,10 +38,10 @@ class ftp_client {
 			   
 				if(sentence.equals("list:")){
 					
-					port = port +2;
-					System.out.println(port);
-					ServerSocket welcomeData = new ServerSocket(port);
-					outToServer.writeBytes(port + " " + sentence + " " + '\n');
+					port1 = port1 +2;
+					System.out.println(port1);
+					ServerSocket welcomeData = new ServerSocket(port1);
+					outToServer.writeBytes(port1 + " " + sentence + " " + '\n');
 
 					Socket dataSocket = welcomeData.accept(); 
 					DataInputStream inData = new DataInputStream(new BufferedInputStream(dataSocket.getInputStream()));
