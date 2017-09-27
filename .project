@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
+<<<<<<< HEAD
 	<name>ftp_server</name>
+=======
+	<name>DataCommProjectOne</name>
+>>>>>>> branch 'master' of https://github.com/SchindlerDan/DataCommProjectOne
 	<comment></comment>
 	<projects>
 	</projects>
